@@ -17,16 +17,25 @@ const sampleDataForPhotoListItem = {
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+
+  const photoListArray = [];
+
+for (let i = 0; i < 3; i++) {
+  photoListArray.push(<PhotoListItem 
+    key = "1"
+    imageSource = {sampleDataForPhotoListItem.imageSource} 
+    profile = {sampleDataForPhotoListItem.profile}
+    username = {sampleDataForPhotoListItem.username}
+    city ={sampleDataForPhotoListItem.location.city}
+    country ={sampleDataForPhotoListItem.location.country}
+  />)
+};
+
+
   return (
     <div className="App">
-      <PhotoListItem 
-        key = "1"
-        imageSource = {sampleDataForPhotoListItem.imageSource} 
-        profile = {sampleDataForPhotoListItem.profile}
-        username = {sampleDataForPhotoListItem.username}
-        city ={sampleDataForPhotoListItem.location.city}
-        country ={sampleDataForPhotoListItem.location.country}
-      />
+      
+      {photoListArray}
     </div>
   );
 };
