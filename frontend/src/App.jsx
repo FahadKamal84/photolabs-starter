@@ -5,6 +5,7 @@ import TopicList from 'components/TopicList';
 import PhotoList from './components/PhotoList';
 import TopNavigation from 'components/TopNavigationBar';
 import './App.scss';
+import HomeRoute from 'routes/HomeRoute';
 
 
 // const sampleDataForPhotoListItem = {
@@ -38,8 +39,7 @@ const App = () => {
     <div className="App">
       {/*{ Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) }*/}
      {/* { photoListArray } */}
-     <TopNavigation/>
-     <PhotoList/>
+     <HomeRoute/>
     </div>
   );
 };
