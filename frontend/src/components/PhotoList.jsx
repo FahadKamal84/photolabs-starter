@@ -58,7 +58,7 @@ const sampleDataForPhotoList = [
 ];
 
 const PhotoList = () => {
-
+  
   const photoListArray = sampleDataForPhotoList.map((photoData) => 
 
     <PhotoListItem 

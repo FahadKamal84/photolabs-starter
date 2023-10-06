@@ -7,7 +7,7 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
 
-  const { imageSource, profile, username, city, country } = props
+  const { key, imageSource, profile, username, city, country } = props
   return (
     <article className = "photo-list__item" >
       <PhotoFavButton /> 
