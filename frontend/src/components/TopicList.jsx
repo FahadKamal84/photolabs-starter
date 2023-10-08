@@ -34,7 +34,7 @@ const TopicList = () => {
   
   );
 
-  console.log(topicArray)
+  
   return (
     <div className="top-nav-bar__topic-list">
       {/* Insert React */}

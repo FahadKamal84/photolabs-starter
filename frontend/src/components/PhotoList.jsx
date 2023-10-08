@@ -58,9 +58,9 @@ import photos from "mocks/photos";
 //   },
 // ];
 
-const PhotoList = () => {
+const PhotoList = (props) => {
 
-  
+  const { userFav } = props;
 
   const photoListArray = photos.map((photoData) => 
 
@@ -69,8 +69,9 @@ const PhotoList = () => {
       imageSource = {photoData.urls.regular} 
        profile = {photoData.user.profile}
       username = {photoData.user.username}
-       city ={photoData.location.city}
-      country ={photoData.location.country}
+       city = {photoData.location.city}
+      country = {photoData.location.country}
+      userFav = {userFav}
      />
 
   );
