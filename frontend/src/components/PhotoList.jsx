@@ -60,7 +60,7 @@ import photos from "mocks/photos";
 
 const PhotoList = (props) => {
 
-  const { userFav } = props;
+  const { userFav, modal, launchModal } = props;
 
   const photoListArray = photos.map((photoData) => 
 
@@ -72,6 +72,8 @@ const PhotoList = (props) => {
        city = {photoData.location.city}
       country = {photoData.location.country}
       userFav = {userFav}
+      modal = {modal}
+      launchModal = {launchModal}
      />
 
   );

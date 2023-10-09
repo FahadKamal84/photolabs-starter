@@ -4,9 +4,9 @@ import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
-const HomeRoute = () => {
+const HomeRoute = (props) => {
 
- 
+ const { modal, launchModal } = props
   const [isFavPhotoExist, setIsFavPhotoExist] = useState("")
   //setIsFavPhotoExist(selected === "" ? "" : "yes")
 
@@ -26,7 +26,7 @@ const HomeRoute = () => {
     <div className="home-route">
       <>
         <TopNavigation isFavPhotoExist = {isFavPhotoExist}/>
-        <PhotoList userFav = {userFav} />
+        <PhotoList userFav = {userFav} launchModal = {launchModal} modal = {modal}/>
       </>
     </div>
   );
