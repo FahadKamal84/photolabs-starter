@@ -2,7 +2,7 @@ import React from "react";
 
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
-import photos from "mocks/photos";
+// import photos from "mocks/photos";
 
 // const sampleDataForPhotoList = [
 //   {
@@ -60,12 +60,14 @@ import photos from "mocks/photos";
 
 const PhotoList = (props) => {
 
-  const { userFav, modal, launchModal } = props;
-
-  const photoListArray = photos.map((photoData) => 
+  const { userFav, modal, launchModal, pictures } = props;
+  
+  const photoListArray = pictures.map((photoData, index) => 
 
     <PhotoListItem 
-      key = {photoData.id}
+      key = {index}
+      id = {photoData.id}
+      imageSourceLarge = {photoData.urls.full}
       imageSource = {photoData.urls.regular} 
        profile = {photoData.user.profile}
       username = {photoData.user.username}
@@ -74,6 +76,7 @@ const PhotoList = (props) => {
       userFav = {userFav}
       modal = {modal}
       launchModal = {launchModal}
+      similarPhotos = {photoData.similar_photos}
      />
 
   );
