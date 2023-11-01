@@ -7,10 +7,11 @@ function PhotoFavButton(props) {
   
   const { userFav } = props;
 
-  const [selected, setSelected] = useState("")
+  const [selected, setSelected] = useState(false)
   const handleClick = () => {
-    setSelected(selected === "" ? "yes": "")
-    userFav(selected)
+    setSelected(selected ? false : true)
+    console.log("FavButton selected value:", selected)
+    userFav(!selected)
     //console.log(selected)
   }
  
