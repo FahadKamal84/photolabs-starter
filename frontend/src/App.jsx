@@ -14,10 +14,23 @@ import photos from 'mocks/photos';
 const App = () => {
 
   const [isFavPhotoExist, setIsFavPhotoExist] = useState(0)
+  const [photoAll, setPhotoAll] = useState(photos)
+  const [favPhotoIds, setFavPhotoIds] = useState([])
   const [id, setId] = useState(null)
   const [modal, setModal] = useState(false)
-  const [count, setCount] = useState(0)
   
+  
+
+  const setFavPhotoId = (id) => {
+    
+    if (!favPhotoIds.includes(id)) {
+      let photo = {}
+      photo = photos.find(p => p.id === id)
+      setFavPhotoIds([...favPhotoIds, photo])
+    }
+  }
+  console.log(favPhotoIds)
+
   const userFav = (selected) => {
 
     (selected ? setIsFavPhotoExist(isFavPhotoExist + 1) : setIsFavPhotoExist(isFavPhotoExist - 1))
@@ -39,7 +52,7 @@ const App = () => {
     <div className="App">
       {/*{ Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) }*/}
      {/* { photoListArray } */}
-     <HomeRoute launchModal = {launchModal} modal = {modal} setIsFavPhotoExist ={setIsFavPhotoExist} isFavPhotoExist ={isFavPhotoExist} userFav={userFav}/>
+     <HomeRoute launchModal = {launchModal} modal = {modal} setIsFavPhotoExist ={setIsFavPhotoExist} isFavPhotoExist ={isFavPhotoExist} userFav={userFav} setFavPhotoId = {setFavPhotoId}/>
      {modal && <PhotoDetailsModal 
                       launchModal = {launchModal}
                        photo = {photo}
