@@ -62,21 +62,22 @@ const PhotoList = (props) => {
 
   const { userFav, modal, launchModal, pictures, setFavPhotoId } = props;
   
-  const photoListArray = pictures.map((photoData, index) => 
+  const photoListArray = pictures.map((photo, index) => 
 
     <PhotoListItem 
       key = {index}
-      id = {photoData.id}
-      imageSourceLarge = {photoData.urls.full}
-      imageSource = {photoData.urls.regular} 
-       profile = {photoData.user.profile}
-      username = {photoData.user.username}
-       city = {photoData.location.city}
-      country = {photoData.location.country}
+      id = {photo.id}
+      photo = {photo}
+      // imageSourceLarge = {photoData.urls.full}
+      // imageSource = {photoData.urls.regular} 
+      //  profile = {photoData.user.profile}
+      // username = {photoData.user.username}
+      //  city = {photoData.location.city}
+      // country = {photoData.location.country}
       userFav = {userFav}
       modal = {modal}
       launchModal = {launchModal}
-      similarPhotos = {photoData.similar_photos}
+     // similarPhotos = {photoData.similar_photos}
       setFavPhotoId={setFavPhotoId}
      />
 

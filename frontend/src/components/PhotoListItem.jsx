@@ -8,21 +8,21 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
 
-  const { key, id, imageSource, profile, username, city, country, userFav, modal, launchModal, imageSourceFull, similarPhotos, setFavPhotoId } = props
+  const { key, id, userFav, modal, launchModal, imageSourceFull, similarPhotos, setFavPhotoId, photo } = props
   
   
-  const handleClick = () => launchModal(id)
+  const handleClick = () => launchModal(photo)
   return (
     <article className = "photo-list__item" >
       <PhotoFavButton userFav = {userFav} setFavPhotoId ={setFavPhotoId} id ={id}/> 
       <div onClick = {handleClick}>
-        <img className = "photo-list__image" src = {imageSource} />
+        <img className = "photo-list__image" src = {photo.urls.regular} />
         <div className="photo-list__user-details" >
-          <img className = "photo-list__user-profile" src = {profile}/>
-          <span className="photo-list__user-info">{username}
+          <img className = "photo-list__user-profile" src = {photo.user.profile}/>
+          <span className="photo-list__user-info">{photo.user.username}
             <p className="photo-list__user-location">
-              {city}, 
-              {country}
+              {photo.location.city}, 
+              {photo.location.country}
             </p>
           </span>
         </div>

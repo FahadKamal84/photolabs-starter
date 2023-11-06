@@ -16,7 +16,7 @@ const App = () => {
   const [isFavPhotoExist, setIsFavPhotoExist] = useState(0)
   const [photoAll, setPhotoAll] = useState(photos)
   const [favPhotoIds, setFavPhotoIds] = useState([])
-  const [id, setId] = useState(null)
+  const [selectPhoto, setSelectPhoto] = useState(null)
   const [modal, setModal] = useState(false)
   
   
@@ -37,18 +37,18 @@ const App = () => {
     
   }
 
-  const launchModal = (id) => {   
+  const launchModal = (photo) => {   
     setModal(modal === false ? true : false)
-    setId(id)
-     console.log('id:', id) 
+    setSelectPhoto(photo)
+     console.log('photo:', photo) 
 
      
     }
     
-    let photo = {}
-    if (id) {
-      photo = photos.find(p => p.id === id)
-    }
+    // let photo = {}
+    // if (id) {
+    //   photo = photos.find(p => p.id === id)
+    // }
 
   return (
     <div className="App">
@@ -63,7 +63,7 @@ const App = () => {
         setFavPhotoId = {setFavPhotoId}/>
      {modal && <PhotoDetailsModal 
                       launchModal = {launchModal}
-                       photo = {photo}
+                       photo = {selectPhoto}
                        userFav ={userFav}/>}
     </div>
   );
