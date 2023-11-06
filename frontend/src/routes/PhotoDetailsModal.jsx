@@ -10,7 +10,7 @@ const PhotoDetailsModal = (props) => {
 
   
   
-  const handleClick = () => props.launchModal()
+  const handleClick = () => props.onCloseModal()
 
   console.log("props photo id:", props.photo)
 

@@ -7,7 +7,7 @@ import photos from "mocks/photos";
 
 const HomeRoute = (props) => {
 
- const { modal, launchModal, setIsFavPhotoExist,isFavPhotoExist, userFav, setFavPhotoId } = props
+ const { modal, onPhotoSelect, setIsFavPhotoExist,isFavPhotoExist, userFav, setFavPhotoId } = props
   
   
   
@@ -20,7 +20,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <>
         <TopNavigation isFavPhotoExist = {isFavPhotoExist}/>
-        <PhotoList userFav = {userFav} launchModal = {launchModal} modal = {modal} pictures ={photos} setFavPhotoId={setFavPhotoId}/>
+        <PhotoList userFav = {userFav} onPhotoSelect = {onPhotoSelect} modal = {modal} pictures ={photos} setFavPhotoId={setFavPhotoId}/>
       </>
     </div>
   );
