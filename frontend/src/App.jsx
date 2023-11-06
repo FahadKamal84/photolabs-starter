@@ -23,10 +23,10 @@ const App = () => {
 
   const setFavPhotoId = (id) => {
     
-    if (!favPhotoIds.includes(id)) {
-      let photo = {}
-      photo = photos.find(p => p.id === id)
-      setFavPhotoIds([...favPhotoIds, photo])
+    if (favPhotoIds.includes(id)) {
+      setFavPhotoIds(favPhotoIds.filter(pId => pId !== id))
+    } else { 
+      setFavPhotoIds([...favPhotoIds, id])
     }
   }
   console.log(favPhotoIds)
@@ -40,19 +40,27 @@ const App = () => {
   const launchModal = (id) => {   
     setModal(modal === false ? true : false)
     setId(id)
-     console.log('id:', id)
-  }
+     console.log('id:', id) 
 
-  let photo = {}
-  if (id) {
-    photo = photos.find(p => p.id === id)
-  }
+     
+    }
+    
+    let photo = {}
+    if (id) {
+      photo = photos.find(p => p.id === id)
+    }
 
   return (
     <div className="App">
       {/*{ Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) }*/}
      {/* { photoListArray } */}
-     <HomeRoute launchModal = {launchModal} modal = {modal} setIsFavPhotoExist ={setIsFavPhotoExist} isFavPhotoExist ={isFavPhotoExist} userFav={userFav} setFavPhotoId = {setFavPhotoId}/>
+     <HomeRoute 
+        launchModal = {launchModal} 
+        modal = {modal} 
+        setIsFavPhotoExist ={setIsFavPhotoExist} 
+        isFavPhotoExist ={isFavPhotoExist} 
+        userFav={userFav} 
+        setFavPhotoId = {setFavPhotoId}/>
      {modal && <PhotoDetailsModal 
                       launchModal = {launchModal}
                        photo = {photo}
