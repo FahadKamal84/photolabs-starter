@@ -1,5 +1,4 @@
 import React from "react";
-
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 // import photos from "mocks/photos";
@@ -68,17 +67,9 @@ const PhotoList = (props) => {
       key = {index}
       id = {photo.id}
       photo = {photo}
-      // imageSourceLarge = {photoData.urls.full}
-      // imageSource = {photoData.urls.regular} 
-      //  profile = {photoData.user.profile}
-      // username = {photoData.user.username}
-      //  city = {photoData.location.city}
-      // country = {photoData.location.country}
-      //userFav = {userFav}
       modal = {modal}
       onPhotoSelect = {onPhotoSelect}
-     // similarPhotos = {photoData.similar_photos}
-     getFavPhotoId={getFavPhotoId}
+      getFavPhotoId={getFavPhotoId}
      />
 
   );
