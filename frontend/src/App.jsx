@@ -14,7 +14,7 @@ import photos from 'mocks/photos';
 const App = () => {
 
   const [isFavPhotoExist, setIsFavPhotoExist] = useState(0)
-  const [favPhotoIds, setFavPhotoIds] = useState([])
+  const [favPhotos, setFavPhotos] = useState([])
   const [selectPhoto, setSelectPhoto] = useState(null)
   const [photoData, setPhotoData] = useState(photos)
   const [topicData, setTopicData] = useState("")
@@ -22,21 +22,21 @@ const App = () => {
   
   
 
-  const setFavPhotoId = (id) => {
+  const getFavPhotoId = (id) => {
     
-    if (favPhotoIds.includes(id)) {
-      setFavPhotoIds(favPhotoIds.filter(pId => pId !== id))
+    if (favPhotos.includes(id)) {
+      setFavPhotos(favPhotos.filter(pId => pId !== id))
     } else { 
-      setFavPhotoIds([...favPhotoIds, id])
+      setFavPhotos([...favPhotos, id])
     }
   }
-  console.log(favPhotoIds)
+  console.log(favPhotos)
 
-  const userFav = (selected) => {
+  // const userFav = (selected) => {
 
-    (selected ? setIsFavPhotoExist(isFavPhotoExist + 1) : setIsFavPhotoExist(isFavPhotoExist - 1))
+  //   (selected ? setIsFavPhotoExist(isFavPhotoExist + 1) : setIsFavPhotoExist(isFavPhotoExist - 1))
     
-  }
+  // }
 
   const onCloseModal = () => {   
     setModal(false)
@@ -63,13 +63,14 @@ const App = () => {
         onPhotoSelect = {onPhotoSelect} 
         modal = {modal} 
         setIsFavPhotoExist ={setIsFavPhotoExist} 
-        isFavPhotoExist ={isFavPhotoExist} 
-        userFav={userFav} 
-        setFavPhotoId = {setFavPhotoId}/>
+        //isFavPhotoExist ={isFavPhotoExist} 
+        //userFav={userFav} 
+        favPhotos={favPhotos}
+        getFavPhotoId = {getFavPhotoId}/>
      {modal && <PhotoDetailsModal 
                       onCloseModal = {onCloseModal}
                        photo = {selectPhoto}
-                       userFav ={userFav}/>}
+                       getFavPhotoId = {getFavPhotoId}/>}
     </div>
   );
 };

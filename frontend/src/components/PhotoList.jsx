@@ -60,7 +60,7 @@ import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
 
-  const { userFav, modal, onPhotoSelect, pictures, setFavPhotoId } = props;
+  const { userFav, modal, onPhotoSelect, pictures, getFavPhotoId } = props;
   
   const photoListArray = pictures.map((photo, index) => 
 
@@ -74,11 +74,11 @@ const PhotoList = (props) => {
       // username = {photoData.user.username}
       //  city = {photoData.location.city}
       // country = {photoData.location.country}
-      userFav = {userFav}
+      //userFav = {userFav}
       modal = {modal}
       onPhotoSelect = {onPhotoSelect}
      // similarPhotos = {photoData.similar_photos}
-      setFavPhotoId={setFavPhotoId}
+     getFavPhotoId={getFavPhotoId}
      />
 
   );

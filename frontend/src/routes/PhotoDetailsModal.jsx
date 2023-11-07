@@ -21,7 +21,7 @@ const PhotoDetailsModal = (props) => {
         <img src={closeSymbol} alt="close symbol" />
       </button>
       
-      <PhotoFavButton userFav = {props.userFav}/>
+      <PhotoFavButton getFavPhotoId = {props.getFavPhotoId} id = {props.photo.id}/>
         <img className='photo-details-modal__image' src = {props.photo.urls.full}/>
       <header className='photo-details-modal__header'>
         <div className='photo-details-modal__photographer-details'>
