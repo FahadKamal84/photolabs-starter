@@ -11,11 +11,11 @@ const {id, slug, title} = sampleDataForTopicListItem
 
 const TopicListItem = (props) => {
   
-  const { title } = props
+  const { topic, onLoadTopic } = props
 
   return (
     <div className="topic-list__item">
-      <span>{title}</span>
+      <span onClick= {()=> onLoadTopic(topic)}>{topic.title}</span>
     </div>
   );
 };

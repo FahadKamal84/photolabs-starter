@@ -22,13 +22,15 @@ const sampleDataForTopicList = [
   },
 ];
 
-const TopicList = () => {
+const TopicList = (props) => {
 
+  const {topicData, onLoadTopic} = props
   const topicArray = topics.map((topic)=> 
 
   <TopicListItem 
     key = {topic.id}
-    title = {topic.title}
+    topic = {topic}
+    onLoadTopic = {onLoadTopic}
     />
 
   

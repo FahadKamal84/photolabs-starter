@@ -8,7 +8,7 @@ import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import photos from 'mocks/photos';
-
+import topics from 'mocks/topics';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
@@ -16,8 +16,9 @@ const App = () => {
   const [isFavPhotoExist, setIsFavPhotoExist] = useState(0)
   const [favPhotos, setFavPhotos] = useState([])
   const [selectPhoto, setSelectPhoto] = useState(null)
+  const [selectTopic, setSelectTopic] = useState(null)
   const [photoData, setPhotoData] = useState(photos)
-  const [topicData, setTopicData] = useState("")
+  const [topicData, setTopicData] = useState(topics)
   const [modal, setModal] = useState(false)
   
   
@@ -38,11 +39,13 @@ const App = () => {
     
   // }
 
+  const onLoadTopic = (topicObj) => {
+    setSelectTopic(topicObj)
+  }
+  console.log(selectTopic)
   const onCloseModal = () => {   
     setModal(false)
     setSelectPhoto(null)
-     
- 
     }
 
     const onPhotoSelect = (photo) => {
@@ -66,7 +69,9 @@ const App = () => {
         //isFavPhotoExist ={isFavPhotoExist} 
         //userFav={userFav} 
         favPhotos={favPhotos}
-        getFavPhotoId = {getFavPhotoId}/>
+        getFavPhotoId = {getFavPhotoId}
+        topicData ={topicData}
+        onLoadTopic = {onLoadTopic}/>
      {modal && <PhotoDetailsModal 
                       onCloseModal = {onCloseModal}
                        photo = {selectPhoto}
