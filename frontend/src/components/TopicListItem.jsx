@@ -15,7 +15,7 @@ const TopicListItem = (props) => {
   
   return (
     <div className="topic-list__item">
-      <span onClick= {()=> onLoadTopic(topic)}>{topic.title}</span>
+      <span onClick= {()=> onLoadTopic(topic.id)}>{topic.title}</span>
     </div>
   );
 };

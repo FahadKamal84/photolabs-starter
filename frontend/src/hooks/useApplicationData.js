@@ -22,7 +22,8 @@ export const ACTIONS = {
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_TOPIC: 'SELECT_TOPIC',
   SELECT_PHOTO: 'SELECT_PHOTO',
-  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
+  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
 }
 
 function reducer(state, action) {
@@ -41,6 +42,8 @@ function reducer(state, action) {
         return { ...state, photoData: action.payload };
     case ACTIONS.SET_TOPIC_DATA:
         return { ...state, topicData: action.payload };
+    case ACTIONS.GET_PHOTOS_BY_TOPICS:
+        return { ...state, photoData: action.payload };
       
     default:
       throw new Error(
@@ -69,14 +72,35 @@ const useApplicationData = () => {
     fetch("http://localhost:8001/api/photos")
       .then((response) => response.json())
       .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+      .catch(err => {
+        console.error('Error fetching photos', err)
+      })
   }, []);
   
   useEffect(() => {
     fetch("http://localhost:8001/api/topics")
       .then((response) => response.json())
       .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
+      .catch(err => {
+        console.error('Error fetching topics', err)
+      })
   }, []);
   
+  useEffect(() => {
+    if (selectTopic) {
+      fetch(`http://localhost:8001/api/topics/photos/${selectTopic}`)
+        .then(res => res.json())
+        .then(data => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data }))
+    } else {
+      fetch('http://localhost:8001/api/photos')
+      .then(res => res.json())
+      .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+      .catch(err => {
+        console.error('Error fetching photos', err)
+      })
+    }
+  }, [selectTopic])
+
   const getFavPhotoId = (id) => {
     
     if (favPhotos.includes(id)) {
@@ -89,11 +113,15 @@ const useApplicationData = () => {
   }
   console.log(favPhotos)
 
-  const onLoadTopic = (topicObj) => {
-    dispatch({type: 'SELECT_TOPIC', payload: {topicObj}})
+  const onLoadTopic = (id) => {
+    dispatch({type: 'SELECT_TOPIC', payload: id})
     // setSelectTopic(topicObj)
   }
   console.log(selectTopic)
+
+  const clearLoadTopic = () => {
+    dispatch({ type: ACTIONS.SELECT_TOPIC, payload: null })
+  }
 
   const onCloseModal = () => {  
     dispatch({type: 'DISPLAY_PHOTO_DETAILS', payload: false}) 
@@ -121,6 +149,7 @@ const useApplicationData = () => {
             },
     getFavPhotoId,
     onLoadTopic,
+    clearLoadTopic,
     onCloseModal,
     onPhotoSelect
     }  

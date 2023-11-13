@@ -24,7 +24,7 @@ import TopicListItem from "./TopicListItem";
 const TopicList = (props) => {
 
   const {onLoadTopic, topics} = props
-  
+  console.log(topics)
   const topicArray = topics.map((topic)=> 
     <TopicListItem 
       key = {topic.id}
@@ -33,7 +33,7 @@ const TopicList = (props) => {
       />
       
   );
-  
+  console.log(topicArray)
   return (
     <div className="top-nav-bar__topic-list">
       {/* Insert React */}
