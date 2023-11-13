@@ -2,7 +2,6 @@ import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
-import PhotoListItem from 'components/PhotoListItem';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
@@ -11,8 +10,6 @@ const PhotoDetailsModal = (props) => {
   const {selectPhoto, onCloseModal, getFavPhotoId} = props
   
   const handleClick = () => onCloseModal()
-
-  console.log("props photo id:", selectPhoto)
 
   const similarPhotos = Object.values(selectPhoto.photo.similar_photos)
   return (
@@ -33,35 +30,11 @@ const PhotoDetailsModal = (props) => {
           </span>
         </div>
       </header>
-      
-        <div className='photo-details-modal__top-bar'>
-          
+        <div className='photo-details-modal__top-bar'>        
             <PhotoList pictures = {similarPhotos}/>
-    
-        </div>
-      
-      
-    
+        </div>    
     </div>
   )
 };
 
-
-{/* <div className="photo-details-modal">
-      
-        <div className='photo-details-modalheader'>
-          <img className='photo-details-modalimage' src={photo.urls.regular} />
-          <div className="photo-details-modalphotographer-details">
-            <img className="photo-details-modalphotographer-profile" src={photo.user.profile} />
-            <p className="photo-details-modalphotographer-info">{photo.user.name}
-            <span className="photo-details-modalphotographer-location">{photo.location.city}, {photo.location.country}</span>
-            </p>
-          </div>
-        </div>
-        <p>Similar Photos</p>
-        <div className='photo-details-modalimages'>
-        <PhotoList photos={similarPhotosArr}/> 
-        </div>
-
-    </div> */}
 export default PhotoDetailsModal;

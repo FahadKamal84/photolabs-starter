@@ -1,10 +1,4 @@
 import { useReducer, useEffect } from "react";
-// const [favPhotos, setFavPhotos] = useState([])
-// const [selectPhoto, setSelectPhoto] = useState(null)
-// const [selectTopic, setSelectTopic] = useState(null)
-// const [photoData, setPhotoData] = useState(photos)
-// const [topicData, setTopicData] = useState(topics)
-// const [modal, setModal] = useState(false)
 
 const initialState ={
   favPhotos: [],
@@ -105,19 +99,14 @@ const useApplicationData = () => {
     
     if (favPhotos.includes(id)) {
       dispatch ({type: 'FAV_PHOTO_REMOVED', payload: id })
-      // setFavPhotos(favPhotos.filter(pId => pId !== id))
     } else { 
       dispatch({ type: 'FAV_PHOTO_ADDED', payload: id })
-      //setFavPhotos([...favPhotos, id])
     }
   }
-  console.log(favPhotos)
 
   const onLoadTopic = (id) => {
     dispatch({type: 'SELECT_TOPIC', payload: id})
-    // setSelectTopic(topicObj)
   }
-  console.log(selectTopic)
 
   const clearLoadTopic = () => {
     dispatch({ type: ACTIONS.SELECT_TOPIC, payload: null })
@@ -125,16 +114,12 @@ const useApplicationData = () => {
 
   const onCloseModal = () => {  
     dispatch({type: 'DISPLAY_PHOTO_DETAILS', payload: false}) 
-    //setModal(false)
     dispatch({type: 'SELECT_PHOTO', payload: null})
-    //setSelectPhoto(null)
     }
 
   const onPhotoSelect = (photo) => {
      dispatch({type: 'DISPLAY_PHOTO_DETAILS', payload: true})
-     //setModal(true)
      dispatch({type: 'SELECT_PHOTO', payload: {photo}})
-     //setSelectPhoto(photo)
   }
 
   return(

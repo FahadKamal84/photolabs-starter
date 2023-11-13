@@ -5,14 +5,12 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
   
-  const { userFav, getFavPhotoId, id } = props;
+  const { getFavPhotoId, id } = props;
 
   const [selected, setSelected] = useState(false)
   const handleClick = () => {
     setSelected(selected ? false : true)
     getFavPhotoId(id)
-    //userFav(!selected)
-    //console.log(selected)
   }
  
   return (

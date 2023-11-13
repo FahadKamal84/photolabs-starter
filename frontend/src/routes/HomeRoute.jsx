@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-
+import React from 'react';
 import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
@@ -7,14 +6,7 @@ import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
 
- const { pictures, modal, onPhotoSelect, setIsFavPhotoExist,isFavPhotoExist, userFav, getFavPhotoId, favPhotos, onLoadTopic, clearLoadTopic, topics } = props
-  
-  
-  
-  
-  
-
-  
+ const { pictures, modal, onPhotoSelect, getFavPhotoId, favPhotos, onLoadTopic, clearLoadTopic, topics } = props
   
   return (
     <div className="home-route">
