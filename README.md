@@ -2,7 +2,9 @@
 The PhotoLabs project for the Web Development React course programming.
 
 # Photolabs
-
+## Screenshots
+!["Main Page"]()
+!["Animals topic with photos favorited"]()
 ## Setup
 
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
