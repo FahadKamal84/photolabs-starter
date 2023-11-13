@@ -19,7 +19,7 @@ export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  // SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_TOPIC: 'SELECT_TOPIC',
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
@@ -37,8 +37,10 @@ function reducer(state, action) {
       return {...state, select_photo: action.payload}
     case ACTIONS.DISPLAY_PHOTO_DETAILS:
       return {...state, modal: action.payload}
-      case ACTIONS.SET_PHOTO_DATA:
+    case ACTIONS.SET_PHOTO_DATA:
         return { ...state, photoData: action.payload };
+    case ACTIONS.SET_TOPIC_DATA:
+        return { ...state, topicData: action.payload };
       
     default:
       throw new Error(
@@ -68,7 +70,13 @@ const useApplicationData = () => {
       .then((response) => response.json())
       .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
   }, []);
-
+  
+  useEffect(() => {
+    fetch("http://localhost:8001/api/topics")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
+  }, []);
+  
   const getFavPhotoId = (id) => {
     
     if (favPhotos.includes(id)) {

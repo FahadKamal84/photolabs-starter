@@ -7,7 +7,7 @@ import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
 
- const { pictures, modal, onPhotoSelect, setIsFavPhotoExist,isFavPhotoExist, userFav, getFavPhotoId, favPhotos, onLoadTopic } = props
+ const { pictures, modal, onPhotoSelect, setIsFavPhotoExist,isFavPhotoExist, userFav, getFavPhotoId, favPhotos, onLoadTopic, topics } = props
   
   
   
@@ -22,6 +22,7 @@ const HomeRoute = (props) => {
         <TopNavigation  
           favPhotos={favPhotos}
           onLoadTopic = {onLoadTopic}
+          topics = {topics}
         />
         <PhotoList  
             onPhotoSelect = {onPhotoSelect} 
