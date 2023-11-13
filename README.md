@@ -30,18 +30,18 @@ npm start
 # Dependencies
 
 ## Frontend
--react
--react-dom
--react-script
--react-vitals
--sass
+- react
+- react-dom
+- react-script
+- react-vitals
+- sass
 
 ## Backend
--body-parser
--cors
--dotenv
--express
--helmet
--pg
--socket.io
--ws
+- body-parser
+- cors
+- dotenv
+- express
+- helmet
+- pg
+- socket.io
+- ws
