@@ -31,6 +31,7 @@ const App = () => {
   return (
     <div className="App">
      <HomeRoute 
+        pictures = {photos}
         onPhotoSelect = {onPhotoSelect} 
         modal = {modal} 
         //setIsFavPhotoExist ={setIsFavPhotoExist} 

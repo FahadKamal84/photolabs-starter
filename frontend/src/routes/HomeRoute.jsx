@@ -3,11 +3,11 @@ import React, {useState} from 'react';
 import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
-import photos from "mocks/photos";
+
 
 const HomeRoute = (props) => {
 
- const { modal, onPhotoSelect, setIsFavPhotoExist,isFavPhotoExist, userFav, getFavPhotoId, favPhotos, onLoadTopic } = props
+ const { pictures, modal, onPhotoSelect, setIsFavPhotoExist,isFavPhotoExist, userFav, getFavPhotoId, favPhotos, onLoadTopic } = props
   
   
   
@@ -26,7 +26,7 @@ const HomeRoute = (props) => {
         <PhotoList  
             onPhotoSelect = {onPhotoSelect} 
             modal = {modal} 
-            pictures ={photos} 
+            pictures ={pictures} 
             getFavPhotoId={getFavPhotoId}
         />
       </>
