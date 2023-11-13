@@ -7,12 +7,10 @@ const PhotoListItem = (props) => {
 
   const { id, userFav, modal, onPhotoSelect, imageSourceFull, similarPhotos, getFavPhotoId, photo } = props
   
-  
-  const handleClick = () => onPhotoSelect(photo)
   return (
     <article className = "photo-list__item" >
       <PhotoFavButton getFavPhotoId ={getFavPhotoId} id ={id}/> 
-      <div onClick = {handleClick}>
+      <div onClick = {() => onPhotoSelect(photo)}>
         <img className = "photo-list__image" src = {photo.urls.regular} />
         <div className="photo-list__user-details" >
           <img className = "photo-list__user-profile" src = {photo.user.profile}/>

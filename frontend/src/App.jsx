@@ -27,6 +27,7 @@ const App = () => {
   } = state
 
   
+  
 
   return (
     <div className="App">
@@ -42,7 +43,7 @@ const App = () => {
       />
      {modal && <PhotoDetailsModal 
                       onCloseModal = {onCloseModal}
-                       photo = {selectPhoto}
+                       selectPhoto = {selectPhoto}
                        getFavPhotoId = {getFavPhotoId}
                 />}
     </div>

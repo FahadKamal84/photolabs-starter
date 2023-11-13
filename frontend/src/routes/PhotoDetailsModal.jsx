@@ -8,27 +8,27 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
 
+  const {selectPhoto, onCloseModal, getFavPhotoId} = props
   
-  
-  const handleClick = () => props.onCloseModal()
+  const handleClick = () => onCloseModal()
 
-  console.log("props photo id:", props.photo)
+  console.log("props photo id:", selectPhoto)
 
-  const similarPhotos = Object.values(props.photo.similar_photos)
+  const similarPhotos = Object.values(selectPhoto.photo.similar_photos)
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick = {handleClick}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
       
-      <PhotoFavButton getFavPhotoId = {props.getFavPhotoId} id = {props.photo.id}/>
-        <img className='photo-details-modal__image' src = {props.photo.urls.full}/>
+      <PhotoFavButton getFavPhotoId = {getFavPhotoId} id = {selectPhoto.photo.id}/>
+        <img className='photo-details-modal__image' src = {selectPhoto.photo.urls.full}/>
       <header className='photo-details-modal__header'>
         <div className='photo-details-modal__photographer-details'>
-          <img className='photo-details-modal__photographer-profile' src = {props.photo.user.profile}/>
-          <span className='photo-details-modal__photographer-info'>{props.photo.user.username}
+          <img className='photo-details-modal__photographer-profile' src = {selectPhoto.photo.user.profile}/>
+          <span className='photo-details-modal__photographer-info'>{selectPhoto.photo.user.username}
             <p className='photo-details-modal__photographer-location'>
-              {props.photo.location.city}, {props.photo.location.country}
+              {selectPhoto.photo.location.city}, {selectPhoto.photo.location.country}
             </p>
           </span>
         </div>

@@ -34,7 +34,7 @@ function reducer(state, action) {
     case ACTIONS.SELECT_TOPIC:
       return {...state, selectTopic: action.payload}
     case ACTIONS.SELECT_PHOTO:
-      return {...state, select_photo: action.payload}
+      return {...state, selectPhoto: action.payload}
     case ACTIONS.DISPLAY_PHOTO_DETAILS:
       return {...state, modal: action.payload}
     case ACTIONS.SET_PHOTO_DATA:
