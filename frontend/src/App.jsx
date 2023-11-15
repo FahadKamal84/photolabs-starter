@@ -43,6 +43,7 @@ const App = () => {
                       onCloseModal = {onCloseModal}
                        selectPhoto = {selectPhoto}
                        getFavPhotoId = {getFavPhotoId}
+                       favPhotos = {favPhotos}
                 />}
     </div>
   );

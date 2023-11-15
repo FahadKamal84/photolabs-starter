@@ -22,6 +22,7 @@ const HomeRoute = (props) => {
             modal = {modal} 
             pictures ={pictures} 
             getFavPhotoId={getFavPhotoId}
+            favPhotos = {favPhotos}
         />
       </>
     </div>

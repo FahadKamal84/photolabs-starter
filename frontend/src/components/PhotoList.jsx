@@ -5,7 +5,7 @@ import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
 
-  const { modal, onPhotoSelect, pictures, getFavPhotoId } = props;
+  const { modal, onPhotoSelect, pictures, getFavPhotoId, favPhotos } = props;
   
   const photoListArray = pictures.map((photo, index) => 
 
@@ -16,6 +16,7 @@ const PhotoList = (props) => {
       modal = {modal}
       onPhotoSelect = {onPhotoSelect}
       getFavPhotoId={getFavPhotoId}
+      favPhotos = {favPhotos}
      />
 
   );

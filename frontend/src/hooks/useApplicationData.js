@@ -65,7 +65,7 @@ const useApplicationData = () => {
   useEffect(() => {
     fetch("http://localhost:8001/api/photos")
       .then((response) => response.json())
-      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+      .then((data) => dispatch({ type: 'SET_PHOTO_DATA', payload: data }))
       .catch(err => {
         console.error('Error fetching photos', err)
       })
@@ -74,7 +74,7 @@ const useApplicationData = () => {
   useEffect(() => {
     fetch("http://localhost:8001/api/topics")
       .then((response) => response.json())
-      .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
+      .then((data) => dispatch({ type: 'SET_TOPIC_DATA', payload: data }))
       .catch(err => {
         console.error('Error fetching topics', err)
       })
@@ -84,11 +84,11 @@ const useApplicationData = () => {
     if (selectTopic) {
       fetch(`http://localhost:8001/api/topics/photos/${selectTopic}`)
         .then(res => res.json())
-        .then(data => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data }))
+        .then(data => dispatch({ type: 'GET_PHOTOS_BY_TOPICS', payload: data }))
     } else {
       fetch('http://localhost:8001/api/photos')
       .then(res => res.json())
-      .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+      .then(data => dispatch({ type: 'SET_PHOTO_DATA', payload: data }))
       .catch(err => {
         console.error('Error fetching photos', err)
       })
@@ -109,7 +109,7 @@ const useApplicationData = () => {
   }
 
   const clearLoadTopic = () => {
-    dispatch({ type: ACTIONS.SELECT_TOPIC, payload: null })
+    dispatch({ type: 'SELECT_TOPIC', payload: null })
   }
 
   const onCloseModal = () => {  

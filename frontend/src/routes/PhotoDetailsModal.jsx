@@ -7,7 +7,7 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
 
-  const {selectPhoto, onCloseModal, getFavPhotoId} = props
+  const {selectPhoto, onCloseModal, getFavPhotoId, favPhotos} = props
   
   const handleClick = () => onCloseModal()
 
@@ -18,7 +18,7 @@ const PhotoDetailsModal = (props) => {
         <img src={closeSymbol} alt="close symbol" />
       </button>
       
-      <PhotoFavButton getFavPhotoId = {getFavPhotoId} id = {selectPhoto.photo.id}/>
+      <PhotoFavButton getFavPhotoId = {getFavPhotoId} favPhotos = {favPhotos} id = {selectPhoto.photo.id}/>
         <img className='photo-details-modal__image' src = {selectPhoto.photo.urls.full}/>
       <header className='photo-details-modal__header'>
         <div className='photo-details-modal__photographer-details'>
@@ -29,9 +29,12 @@ const PhotoDetailsModal = (props) => {
             </p>
           </span>
         </div>
+        <p>
+          Similar Photos
+        </p>
       </header>
         <div className='photo-details-modal__top-bar'>        
-            <PhotoList pictures = {similarPhotos}/>
+            <PhotoList pictures = {similarPhotos} getFavPhotoId = {getFavPhotoId} favPhotos = {favPhotos}/>
         </div>    
     </div>
   )
